@@ -1,0 +1,167 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #0d1117;
+    color: #c9d1d9;
+}
+
+header {
+    background: #161b22;
+    color: #58a6ff;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #161b22;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #58a6ff;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #0d1117;
+    color: #c9d1d9;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="password"]:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 5px rgba(88, 166, 255, 0.8);
+}
+
+/* Styles for the password input section */
+#password-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#password-input > div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    align-items: stretch;
+}
+
+#password-input > div > div {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    box-sizing: border-box;
+}
+
+#password-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#password-input input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    background: #0d1117;
+    color: #58a6ff;
+    font-family: monospace;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#password-input h2 {
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+}
+
+#hash-output {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: #0d1117;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #58a6ff;
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+#hash-output strong {
+    margin-bottom: 0.5rem;
+}
+
+#hash-output span {
+    text-align: left;
+    width: 100%;
+}
+
+#password-attempts {
+    width: 100%;
+    max-width: 500px;
+    background: #161b22;
+    padding: 1rem;
+    border-radius: 4px;
+    color: #c9d1d9;
+    font-family: monospace;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: #161b22;
+    color: #c9d1d9;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
