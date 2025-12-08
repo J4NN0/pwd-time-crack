@@ -7,30 +7,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Password Time Crack</h1>
-    </header>
     <main>
-        <section id="overview">
-            <h2>Why This Website?</h2>
-            <p>I recently came across an article discussing the time required to crack passwords. While the concept is fascinating, it can be difficult to grasp. This website aims to provide a practical example to help users understand the ethical implications of password security.</p>
-            <img src="docs/pwd_time_crack.png" style="display: block; margin: 1rem auto; max-width: 400px; height: auto;">
-        </section>
-        <section id="password-input">
-            <h2>Try It Out</h2>
-            <div>
-                <div>
-                    <label for="password">Enter your password:</label>
-                    <input type="password" id="password" placeholder="Type your password here">
+        <div class="layout">
+            <section id="password-input">
+                <h2>Try It Out</h2>
+                <div class="inputs-row">
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Type here">
+                    </div>
+                    <div id="hash-output">
+                        <strong>SHA256 Hash</strong> <span> </span>
+                    </div>
+                    <button class="crack-btn" type="button">Crack</button>
                 </div>
-                <div id="hash-output">
-                    <strong>SHA256 Hash</strong> <span> </span>
+                <div id="password-attempts">
+                    <strong>Current Attempt:</strong> <span>None</span>
                 </div>
-            </div>
-            <div id="password-attempts">
-                <strong>Current Attempt:</strong> <span>None</span>
-            </div>
-        </section>
+                <div id="crack-output">
+                    <strong>Cracking Time</strong>
+                    <div class="crack-log">None</div>
+                </div>
+            </section>
+            <section id="overview">
+                <h2>Why This Website?</h2>
+                <p>I recently came across an <a href="https://www.security.org/how-secure-is-my-password" target="_blank">article</a> discussing the time required to crack passwords. While the concept is fascinating, it can be difficult to grasp. This website aims to provide a practical example to help users understand the ethical implications of password security.</p>
+                <img class="overview-image" src="docs/pwd_time_crack.png" alt="Password time crack chart">
+            </section>
+        </div>
     </main>
     <script src="js/script.js"></script>
 </body>
