@@ -183,9 +183,7 @@ input[type="password"]:focus {
 }
 
 .crack-log {
-    min-height: 48px;
     color: #58a6ff;
-    white-space: pre-wrap;
 }
 
 .overview-image {

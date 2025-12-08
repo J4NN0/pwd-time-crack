@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Time Crack</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <main>
         <div class="layout">
@@ -18,21 +20,30 @@
                     </div>
                     <button class="crack-btn" type="button">Crack</button>
                 </div>
-                <div id="password-attempts">
-                    <strong>Current Attempt:</strong> <span>None</span>
-                </div>
                 <div id="crack-output">
-                    <strong>Cracking Time</strong>
-                    <div class="crack-log">None</div>
+                    <label for="cracking-stats">Cracking Stats</label>
+                    <div class="crack-log">
+                        <p>
+                            <strong>Cracking Time</strong> <span id="cracking-time">None</span>
+                        </p>
+                        <p>
+                            <strong>Current Attempt</strong> <span id="current-attempt">None</span>
+                        </p>
+
+                    </div>
                 </div>
             </section>
             <section id="overview">
                 <h2>Why This Website?</h2>
-                <p>I recently came across an <a href="https://www.security.org/how-secure-is-my-password" target="_blank">article</a> discussing the time required to crack passwords. While the concept is fascinating, it can be difficult to grasp. This website aims to provide a practical example to help users understand the ethical implications of password security.</p>
+                <p>I recently came across an <a href="https://www.security.org/how-secure-is-my-password"
+                        target="_blank">article</a> discussing the time required to crack passwords. While the concept
+                    is fascinating, it can be difficult to grasp. This website aims to provide a practical example to
+                    help users understand the ethical implications of password security.</p>
                 <img class="overview-image" src="docs/pwd_time_crack.png" alt="Password time crack chart">
             </section>
         </div>
     </main>
     <script src="js/crack.js"></script>
 </body>
+
 </html>

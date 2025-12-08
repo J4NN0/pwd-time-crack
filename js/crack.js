@@ -1,8 +1,9 @@
 const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-const attemptSpan = document.querySelector('#password-attempts span');
 const crackLog = document.querySelector('.crack-log');
 const passwordInput = document.getElementById('password');
 const crackBtn = document.querySelector('.crack-btn');
+const crackingTimeSpan = document.querySelector('#cracking-time');
+const currentAttemptSpan = document.querySelector('#current-attempt');
 
 function sleep() {
     return new Promise(resolve => setTimeout(resolve, 0));
@@ -12,7 +13,7 @@ async function recurseAttempt(desiredLength, prefix, target, foundRef) {
     if (foundRef.found) return;
 
     if (prefix.length === desiredLength) {
-        attemptSpan.textContent = prefix;
+        currentAttemptSpan.textContent = prefix;
         if (prefix === target) {
             foundRef.found = true;
             return;
@@ -39,23 +40,31 @@ async function crackPassword(target, maxLength) {
 async function handleCrackClick() {
     const target = passwordInput.value;
     if (!target) {
-        attemptSpan.textContent = 'None';
-        crackLog.textContent = 'Enter a password first.';
+        currentAttemptSpan.textContent = 'None';
+        crackingTimeSpan.textContent = 'Enter a password first.';
         return;
     }
 
     crackBtn.disabled = true;
     crackBtn.textContent = 'Cracking...';
-    crackLog.textContent = 'Running...';
-    attemptSpan.textContent = 'Starting...';
+    currentAttemptSpan.textContent = 'Starting...';
 
-    const startTime = performance.now();
+    let running = true;
+    let startTime = performance.now();
+    function updateRunningTime() {
+        if (!running) return;
+        const now = performance.now();
+        const elapsed = ((now - startTime) / 1000).toFixed(3);
+        crackingTimeSpan.textContent = `${elapsed}s`;
+        requestAnimationFrame(updateRunningTime);
+    }
+    updateRunningTime();
+
     const found = await crackPassword(target, target.length);
-    const endTime = performance.now();
-    const elapsedTime = ((endTime - startTime) / 1000).toFixed(3);
+    running = false;
 
-    crackLog.textContent = found
-        ? `Password found: ${attemptSpan.textContent}\nTime: ${elapsedTime}s`
+    crackingTimeSpan.textContent = found
+        ? `${((performance.now() - startTime) / 1000).toFixed(3)}s`
         : 'Exhausted search without a match.';
 
     crackBtn.disabled = false;
@@ -63,7 +72,7 @@ async function handleCrackClick() {
 }
 
 function init() {
-    if (!crackBtn || !attemptSpan || !crackLog || !passwordInput) {
+    if (!crackBtn || !currentAttemptSpan || !crackLog || !passwordInput) {
         console.error('Required elements not found');
         return;
     }
