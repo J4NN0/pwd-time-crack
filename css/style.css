@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -13,10 +17,6 @@ main {
     padding: 2rem;
     max-width: 900px;
     margin: 1.5rem auto;
-    background: transparent;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
 }
 
 .layout {
@@ -67,6 +67,7 @@ input[type="text"] {
     font-family: 'Space Mono', 'SFMono-Regular', Menlo, monospace;
     background: #0d1117;
     color: #c9d1d9;
+    line-height: 1.5;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -102,17 +103,16 @@ input[type="password"]:focus {
     border: 1px solid #58a6ff;
     border-radius: 4px;
     background: linear-gradient(120deg, rgba(88, 166, 255, 0.12), rgba(139, 92, 246, 0.12));
-    color: #c9d1d9;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-    white-space: nowrap;
-    box-sizing: border-box;
+    color: #fff;
     font-size: 1rem;
     font-family: 'Space Mono', 'SFMono-Regular', Menlo, monospace;
+    font-weight: 600;
     line-height: 1.5;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    cursor: pointer;
     margin-top: calc(1.5em + 0.5rem);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
 }
 
 #password-input .crack-btn:active {
@@ -121,47 +121,21 @@ input[type="password"]:focus {
     border-color: #8b5cf6;
 }
 
-#password-input > div > div {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    box-sizing: border-box;
-}
-
-#password-input label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
 #password-input input[type="password"],
 #password-input input[type="text"] {
-    width: 100%;
     padding: 1rem;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    background: #0d1117;
+    border-color: transparent;
     color: #58a6ff;
-    font-family: 'Space Mono', 'SFMono-Regular', Menlo, monospace;
-    font-size: 1rem;
-    line-height: 1.5;
-    box-sizing: border-box;
 }
 
 #password-input h2 {
-    text-align: left;
-    margin-left: 0;
     width: 100%;
 }
-
 
 #password-attempts {
     width: 100%;
     max-width: 500px;
-    background: transparent;
     padding: 0.5rem 0;
-    border-radius: 0;
-    color: #c9d1d9;
     font-family: 'Space Mono', 'SFMono-Regular', Menlo, monospace;
 }
 
@@ -172,9 +146,7 @@ input[type="password"]:focus {
     padding: 1rem;
     border-radius: 6px;
     border: 1px solid #30363d;
-    color: #c9d1d9;
     font-family: 'Space Mono', 'SFMono-Regular', Menlo, monospace;
-    box-sizing: border-box;
 }
 
 #crack-output strong {
