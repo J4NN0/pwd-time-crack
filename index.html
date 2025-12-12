@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Time Crack</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/table.css">
 </head>
 
 <body>
@@ -39,7 +40,106 @@
                         target="_blank">article</a> discussing the time required to crack passwords. While the concept
                     is fascinating, it can be difficult to grasp. This website aims to provide a practical example to
                     help users understand the ethical implications of password security.</p>
-                <img class="overview-image" src="docs/pwd_time_crack.png" alt="Password time crack chart">
+                <table class="password-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2"># of<br>Characters</th>
+                            <th colspan="4">How Safe Is Your Password?</th>
+                        </tr>
+                        <tr>
+                            <th>Lowercase<br>letters only</th>
+                            <th>At least one<br>uppercase letter</th>
+                            <th>Uppercase +<br>number</th>
+                            <th>Uppercase +<br>number + symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="na">-</td>
+                            <td class="na">-</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="na">-</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="instant">Instantly</td>
+                            <td class="instant">Instantly</td>
+                            <td class="warn">1 min</td>
+                            <td class="warn">6 min</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="instant">Instantly</td>
+                            <td class="warn">22 min</td>
+                            <td class="warn">1 hr</td>
+                            <td class="warn">8 hrs</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="warn">2 min</td>
+                            <td class="warn">19 hrs</td>
+                            <td class="warn">3 days</td>
+                            <td class="warn">3 wks</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="warn">1 hr</td>
+                            <td class="safe">1 mth</td>
+                            <td class="safe">7 mths</td>
+                            <td class="safe">5 yrs</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="safe">1 day</td>
+                            <td class="safe">5 yrs</td>
+                            <td class="safe">41 yrs</td>
+                            <td class="safe">400 yrs</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="safe">3 wks</td>
+                            <td class="safe">300 yrs</td>
+                            <td class="safe">2,000 yrs</td>
+                            <td class="safe">34,000 yrs</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </div>
     </main>

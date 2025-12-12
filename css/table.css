@@ -1,0 +1,46 @@
+.password-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.password-table th,
+.password-table td {
+    border: 1px solid #ddd;
+    padding: 0.6rem;
+}
+
+.password-table thead th {
+    background-color: transparent;
+    color: #fff;
+    font-weight: 600;
+}
+
+.password-table td:first-child {
+    font-weight: bold;
+    background-color: transparent;
+    color: #fff;
+}
+
+.password-table td.na {
+    background-color: transparent !important;
+    color: #fff !important;
+    font-weight: 500;
+    border-color: #ddd !important;
+}
+
+/* Heatmap colors */
+.instant {
+    background-color: #e57373;
+    color: #fff;
+}
+
+.warn {
+    background-color: #b7b13ff3;
+}
+
+.safe {
+    background-color: #45b04b;
+}
