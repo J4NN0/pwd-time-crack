@@ -1,4 +1,3 @@
-const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 const crackLog = document.querySelector('.crack-log');
 const passwordInput = document.getElementById('password');
 const crackBtn = document.querySelector('.crack-btn');
@@ -9,7 +8,7 @@ function sleep() {
     return new Promise(resolve => setTimeout(resolve, 0));
 }
 
-async function recurseAttempt(desiredLength, prefix, target, foundRef) {
+async function crackPassword(desiredLength, prefix, target, foundRef, charset) {
     if (foundRef.found) return;
 
     if (prefix.length === desiredLength) {
@@ -23,18 +22,25 @@ async function recurseAttempt(desiredLength, prefix, target, foundRef) {
     }
 
     for (let i = 0; i < charset.length && !foundRef.found; i++) {
-        await recurseAttempt(desiredLength, prefix + charset[i], target, foundRef);
+        await crackPassword(desiredLength, prefix + charset[i], target, foundRef, charset);
     }
 }
 
-async function crackPassword(target, maxLength) {
-    const foundRef = { found: false };
+function getCharsetFromPassword(password) {
+    let charset = '';
+    const lowers = 'abcdefghijklmnopqrstuvwxyz';
+    const uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const digits = '0123456789';
+    const symbols = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ ';
 
-    for (let len = 1; len <= maxLength && !foundRef.found; len++) {
-        await recurseAttempt(len, '', target, foundRef);
-    }
+    if (/[a-z]/.test(password)) charset += lowers;
+    if (/[A-Z]/.test(password)) charset += uppers;
+    if (/[0-9]/.test(password)) charset += digits;
+    if (/[^a-zA-Z0-9]/.test(password)) charset += symbols;
+    
+    if (!charset) charset = lowers;
 
-    return foundRef.found;
+    return charset;
 }
 
 async function handleCrackClick() {
@@ -44,6 +50,8 @@ async function handleCrackClick() {
         crackingTimeSpan.textContent = 'Enter a password first.';
         return;
     }
+
+    const charset = getCharsetFromPassword(target);
 
     crackBtn.disabled = true;
     crackBtn.textContent = 'Cracking...';
@@ -60,10 +68,11 @@ async function handleCrackClick() {
     }
     updateRunningTime();
 
-    const found = await crackPassword(target, target.length);
+    const foundRef = { found: false };
+    await crackPassword(target.length, '', target, foundRef, charset);
     running = false;
 
-    crackingTimeSpan.textContent = found
+    crackingTimeSpan.textContent = foundRef.found
         ? `${((performance.now() - startTime) / 1000).toFixed(3)}s`
         : 'Exhausted search without a match.';
 
